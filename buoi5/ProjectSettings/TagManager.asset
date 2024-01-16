@@ -8,6 +8,7 @@ TagManager:
   - coin
   - Mushroom
   - gach
+  - Text
   layers:
   - Default
   - TransparentFX
