@@ -6,7 +6,9 @@ public class Player_Move : MonoBehaviour
 {
     //1.xu li an diem
     int score = 0;
+    int hp = 5;
     public Text txtScore;
+    public Text txtHp;
     //-----
 
     public static bool isGameOver = false;
@@ -25,13 +27,13 @@ public class Player_Move : MonoBehaviour
             Destroy(collision.gameObject); //hủy coin
             txtScore.text = "Score: " + score.ToString();
         }
-
+        
         if (collision.gameObject.tag == "Mushroom")
         {
-            score--; //trừ điểm
+            hp--; //trừ điểm
             Destroy(collision.gameObject); //hủy coin
-            txtScore.text = "Score: " + score.ToString();
-            if (score <= 0)
+            txtHp.text = "HP: " + hp.ToString();
+            if (hp <= 0)
             {
                 Application.LoadLevel("Menu");
             }
@@ -69,6 +71,7 @@ public class Player_Move : MonoBehaviour
     {
 
         txtScore = GameObject.Find("txtDiem").GetComponent<Text>(); //ánh xạ
+        txtHp = GameObject.Find("txtHp").GetComponent<Text>();
 
         // rigibody2d = this.gameObject.GetComponent<Rigibody2D>();
         // transform = this.gameObject.GetComponent<Transform>();
